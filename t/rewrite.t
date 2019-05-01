@@ -18,6 +18,8 @@ my @tests = (
     q{ref($foo) or}                => q{is_ref($foo) or},
     q!if (ref($foo) eq 'ARRAY') {! => q!if (is_arrayref($foo)) {!,
     q{ref($foo) eq 'ARRAY' or}     => q{is_arrayref($foo) or},
+    q!sub { my $isref = ref($self) }! => q!sub { my $isref = is_ref($self) }!,
+    q!sub { return ref $self }! => q!sub { return is_ref($self) }!,
 
     # not supported (yet?)
     #qq{ref(\$foo) # comment\nor}   => q{is_ref($foo) or # comment},
