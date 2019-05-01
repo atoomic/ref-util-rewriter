@@ -13,6 +13,7 @@ can_ok(
 
 my @tests = (
     q{ref $foo eq 'ARRAY';}        => q{is_arrayref($foo);},
+    q{ref $foo eq 'CODE' && ref $foo eq 'ARRAY';}        => q{is_coderef($foo) && is_arrayref($foo);},
     q{ref($foo) eq 'ARRAY';}       => q{is_arrayref($foo);},
     q{ref  ($foo) eq 'ARRAY';}     => q{is_arrayref($foo);},
     q{ref($foo) or}                => q{is_ref($foo) or},
